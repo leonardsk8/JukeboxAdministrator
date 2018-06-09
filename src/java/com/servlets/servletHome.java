@@ -58,7 +58,9 @@ public class servletHome extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession httpSession=request.getSession();
-        httpSession.setAttribute("sessionUsuario", request.getParameter("user"));
+        httpSession.setAttribute("Usuario", request.getParameter("user"));
+        httpSession.setAttribute("Email", request.getParameter("email"));
+        httpSession.setAttribute("UID", request.getParameter("id"));
         request.getRequestDispatcher("home/home.jsp").forward(request, response);
     }
 

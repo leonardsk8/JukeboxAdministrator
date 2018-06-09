@@ -56,8 +56,8 @@ $( "#form-login" ).submit(function( event ) {
           alert("Exito");
             // The signed-in user info.
            var user = result.user;
-           alert(user.uid);
-          //document.location.href = "/JukeboxAdministrator/servletHome?user="+user.displayName+"email="+user.;
+          document.location.href = "/JukeboxAdministrator/servletHome?user="+user
+                  .displayName+"&email="+user.email+"&id="+user.uid;
       }
       ).catch(function(error) {
 

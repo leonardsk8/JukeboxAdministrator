@@ -6,7 +6,8 @@
             <img id="{{videoid}}img" data-id="{{videoid}}" class="imagen-previa" src="//i.ytimg.com/vi/{{videoid}}/mqdefault.jpg"><div class="youtube-play"></div>
         </div>
         <div id="{{videoid}}tube"></div>
-        <button type="button" class="btn btn-info btnList">A la lista de reproducción</button>
+        <button id="{{videoid}}btn" type="button" class="btn btn-info btnList">A la lista de reproducción</button>
+        
         </div>
         <script>
             $("#{{videoid}}").click(function (){
@@ -15,6 +16,9 @@
                $('#{{videoid}}').hide();
               $('#{{videoid}}tube').html(video); 
             });
+//            $("#{{videoid}}btn").click(function (){
+//                firebase.database().ref('reproduction_list/establishment/');
+//            });
         </script>
     </body>
 </html>
