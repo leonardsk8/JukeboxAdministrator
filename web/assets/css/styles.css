@@ -703,3 +703,72 @@ div.youtube-play:hover{
 .btnList{
     margin-left: 50px;
 }
+
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+
+#columnsSongs {
+  list-style-type: none;
+}
+.noList{
+    list-style-type: none;
+}
+#listHeaderToApproved{
+   
+  padding-bottom: 5px;
+  padding-top: 5px;
+  cursor: pointer; 
+  height: 50px;
+  color: black;
+  background-color: #ccc;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  border-radius: 10px;
+  border: 2px solid #666666;
+}
+.nameSong{
+   padding-left: 15px;
+   padding-right: 15px;
+}
+.btn1A{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.column {
+  width: 100%;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  text-align: center;
+  cursor: move;
+}
+.column header {
+  height: 50px;
+  width: 100%;
+  color: black;
+  background-color: #ccc;
+/*  padding: 5px;*/
+  border-bottom: 1px solid #ddd;
+  border-radius: 10px;
+  border: 2px solid #666666;
+}
+
+.column.dragElem {
+  opacity: 0.4;
+}
+.column.over {
+/*  //border: 2px dashed #000;*/
+  border-top: 2px solid blue;
+}
+#btnNext{
+   margin: 0 auto;
+}
+#btnPlay{
+   margin: 0 auto;
+}

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author leona
  */
-public class servletHome extends HttpServlet {
+public class servletUnVetoed extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,8 +30,10 @@ public class servletHome extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+       HttpSession httpSession=request.getSession();
+       httpSession.setAttribute("UID", request.getParameter("id"));
        
+       request.getRequestDispatcher("home/unvetoed.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -46,11 +48,7 @@ public class servletHome extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession httpSession=request.getSession();
-        httpSession.setAttribute("Usuario", request.getParameter("user"));
-        httpSession.setAttribute("Email", request.getParameter("email"));
-        httpSession.setAttribute("UID", request.getParameter("id"));
-        request.getRequestDispatcher("home/home.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -64,9 +62,7 @@ public class servletHome extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession httpSession=request.getSession();
-	httpSession.setAttribute("sessionUsuario", request.getParameter("user"));
-        request.getRequestDispatcher("home/home.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**

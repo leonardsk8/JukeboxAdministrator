@@ -16,7 +16,7 @@
     <link href="/JukeboxAdministrator/assets/css/styles.css" rel="stylesheet">
 
   </head>
-  <body>
+  <body >
   	<div class="header">
 	     <div class="container">
 	        <div class="row">
@@ -38,12 +38,13 @@
 		  	<div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="current"><a href="home.html"><i class="glyphicon glyphicon-home"></i>INICIO</a></li>
-                    <li><a href=""><i class="glyphicon glyphicon-calendar"></i> PROMOCIONES</a></li>
-                    <li><a href=""><i class="glyphicon glyphicon-stats"></i> PERFIL</a></li>
-                    <li><a href=""><i class="glyphicon glyphicon-list"></i> SALIR</a></li>
+                    <li class="current"><a href="home.html"><i class="glyphicon glyphicon-home"></i> INICIO </a></li>
+                    <li><a href=""><i class="glyphicon glyphicon-calendar"></i> PROMOCIONES </a></li>
+                    <li><a href=""><i class="glyphicon glyphicon-stats"></i> PERFIL </a></li>
+                    <li><a href=""><i class="glyphicon glyphicon-list"></i> SALIR </a></li>
                     
                 </ul>
+                            
              </div>
 		  </div>
 		  <div class="col-md-10">
@@ -54,50 +55,50 @@
 							<div class="panel-title">YOUTUBE</div>
 						</div>
 		  				<div class="content-box-large box-with-header">
-			  			
-					</div>
+			  			<div id="player"></div>
+                                                <center>
+                                                    <button id="btnPlay" type="button" class="btn btn-info" >PLAY LIST</button>
+                                                </center>
+                                                </div>
 		  			
 		  		</div>
 
-		  		<div class="col-md-6 panel-title">
+                            <div id="divSongs" class="col-md-6 panel-title">
 		  			
 		  				<div class="content-box-header panel-heading">
 							<div class="panel-title">SONGS</div>
 						</div>
-		  				<div class="content-box-large box-with-header">
-			  			
-					</div>
+		  				<div id="listSongs" class="content-box-large box-with-header">
+			  			<ul id="columnsSongs">
+                                                    
+                                                </ul>
+                                                </div>
 		  			
 		  		
 		  		</div>
 		  	</div>
 
 		  	<div class="row">
-		  		<div class="col-md-4 panel-warning">
+		  		
+                            <div class="col-md-6 panel-warning">
 		  			<div class="content-box-header panel-heading">
-	  					<div class="panel-title ">ESTADISTICAS GENERALES</div>
+                                            <div class="panel-title ">USUARIOS</div><a style="float: right;" onclick="unVetoedUser()">UsuariosVetado</a>
 					
 		  			</div>
 		  			<div class="content-box-large box-with-header">
-			  			
+                                            <ul id="columnsUsers" class="noList">    
+                                                
+                                            </ul>
 					</div>
 		  		</div>
-                            <div class="col-md-4 panel-warning">
-		  			<div class="content-box-header panel-heading">
-	  					<div class="panel-title ">USUARIOS</div>
-					
-		  			</div>
-		  			<div class="content-box-large box-with-header">
-			  			
-					</div>
-		  		</div>
-                                <div class="col-md-4 panel-warning">
+                                <div class="col-md-6 panel-warning">
 		  			<div class="content-box-header panel-heading">
 	  					<div class="panel-title">CANCIONES POR APROBAR</div>
-					
 		  			</div>
 		  			<div class="content-box-large box-with-header">
-			  			
+                                            <ul id="columnsSongsToApproved" class="noList">    
+                                                
+                                            </ul>	
 					</div>
 		  		</div>
 		  	</div>
@@ -110,6 +111,7 @@
 			  			<form action="#">
                                                     <p><input type="text" id="search" placeholder="Type something..." autocomplete="off" class="form-control" /></p>
                                                      <p><input type="submit" value="Search" class="form-control btn btn-primary w100"></p>
+                                                     <input id="idEstablishment" type="hidden" value="<%out.print(String.valueOf(request.getSession().getAttribute("UID")));%>">
                                                 </form>
                                                 <div id="results"></div>
 					</div>
@@ -123,7 +125,7 @@
          <div class="container">
          
             <div class="copy text-center">
-               Copyright 2014 <a href='#'>Website</a>
+               Copyright 2018 <a href='#'>JUKEBOX</a>
             </div>
             
          </div>
@@ -135,6 +137,8 @@
     <script src="/JukeboxAdministrator/assets/bootstrap/js/bootstrap.min.js"></script>
 <!--    <script src="../assets/js/auth.js"></script>-->
     <script src="/JukeboxAdministrator/assets/js/app.js"></script>
+    <script src="/JukeboxAdministrator/assets/js/item.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
    
 

@@ -1,3 +1,5 @@
+/* global firebase */
+
 jQuery(document).ready(function() {
     
     // Initialize Firebase
@@ -10,7 +12,7 @@ jQuery(document).ready(function() {
             messagingSenderId: "629911785392"
           };
           firebase.initializeApp(config);
-    
+          
 	
     /*
         Fullscreen background
@@ -54,10 +56,28 @@ $( "#form-login" ).submit(function( event ) {
   if($("#form-username").val() !== "" & $("#form-password").val() !== ""){
       firebase.auth().signInWithEmailAndPassword($("#form-username").val(), $("#form-password").val()).then(function(result) {
           alert("Exito");
-            // The signed-in user info.
+            
            var user = result.user;
-          document.location.href = "/JukeboxAdministrator/servletHome?user="+user
+           var ref = 'session/establishment/'+user.uid+'/users/'+user.uid;
+           var db= firebase.database().ref(ref);
+           var userDb = new Object();
+           userDb.sessionDateStart="2018-06-25 00:18";
+           userDb.sessionState = "active";
+           userDb.sessionUserId =user.uid;
+           userDb.sessionUserImage ="https://i1.wp.com/www.plumsteadbond.com/wp-content/uploads/2018/05/2hIOZ.gif?ssl=1";
+           userDb.sessionUserName = "Admin";
+           userDb.sessionUserToken = "1";
+           
+           db.set(userDb)
+            .then(function(result) {
+                console.log("Exito");
+                   document.location.href = "/JukeboxAdministrator/servletHome?user="+user
                   .displayName+"&email="+user.email+"&id="+user.uid;
+
+            }).catch(function (error) {
+                alert(error);
+                console.log("Error");
+            });
       }
       ).catch(function(error) {
 

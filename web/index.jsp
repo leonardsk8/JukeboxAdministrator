@@ -94,7 +94,7 @@
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/scripts.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-        <script src="assets/js/autentication.js"></script>
+        
         
     </body>
 

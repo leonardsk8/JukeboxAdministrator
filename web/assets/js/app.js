@@ -1,18 +1,4 @@
 
-
-function tplawesome(e,t){
-    res=e;for(var n=0;n<t.length;n++){
-        res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})
-        
-    }
-    
-    return res
-}
-
-
-$(document).ready(function() {
- 
-});
  function youtubeSearch(){
       var request = gapi.client.youtube.search.list({
             part: "snippet",
@@ -23,7 +9,7 @@ $(document).ready(function() {
        }); 
        // execute the request
        request.execute(function(response) {
-           // var str = JSON.stringify(response.result);
+         //var str = JSON.stringify(response.result);
            //console.log(str);
           var results = response.result;
           $("#results").html("");
@@ -43,7 +29,17 @@ $(document).ready(function() {
     
     $(window).on("resize", resetVideoHeight);
 
-
+function tplawesome(e,t){    
+    
+        t[0].title = t[0].title.replace(/'/g,"");    
+        
+    res=e;for(var n=0;n<t.length;n++){
+        res=res.replace(/\-\-(.*?)\-\-/g,function(e,r){return t[n][r]})
+        
+    }
+    
+    return res
+}
 function resetVideoHeight() {
     $(".video").css("height", $("#results").width() * 9/16);
 }
