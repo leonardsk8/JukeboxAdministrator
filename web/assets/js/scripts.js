@@ -4,13 +4,14 @@ jQuery(document).ready(function() {
     
     // Initialize Firebase
           var config = {
-            apiKey: "AIzaSyD7-bVTa9iV2NNrlFqWqUMk-VQx9H4LnFs",
+            apiKey: "AIzaSyCDZi00XwcnAZtNscrre3yiguMuhFFNQdI",
             authDomain: "dispositivo1-202101.firebaseapp.com",
             databaseURL: "https://dispositivo1-202101.firebaseio.com",
             projectId: "dispositivo1-202101",
             storageBucket: "dispositivo1-202101.appspot.com",
             messagingSenderId: "629911785392"
           };
+
           firebase.initializeApp(config);
           
 	
