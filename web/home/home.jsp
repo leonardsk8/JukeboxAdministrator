@@ -39,6 +39,7 @@
                 <ul class="nav">
                     <!-- Main menu -->
                     <li class="current"><a href="home.html"><i class="glyphicon glyphicon-home"></i> INICIO </a></li>
+                    <li><a href="servletReloads" target="_blank"><i class="glyphicon glyphicon-bitcoin"></i> RECARGAS </a></li>
                     <li><a href=""><i class="glyphicon glyphicon-calendar"></i> PROMOCIONES </a></li>
                     <li><a href=""><i class="glyphicon glyphicon-stats"></i> PERFIL </a></li>
                     <li><a href=""><i class="glyphicon glyphicon-list"></i> SALIR </a></li>

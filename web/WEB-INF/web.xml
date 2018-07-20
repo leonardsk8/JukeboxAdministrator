@@ -32,6 +32,10 @@
         <servlet-name>servletNotify</servlet-name>
         <servlet-class>com.servlets.servletNotify</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>servletReloads</servlet-name>
+        <servlet-class>com.servlets.servletReloads</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>servletIndex</servlet-name>
         <url-pattern>/servletIndex</url-pattern>
@@ -59,6 +63,10 @@
     <servlet-mapping>
         <servlet-name>servletNotify</servlet-name>
         <url-pattern>/servletNotify</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servletReloads</servlet-name>
+        <url-pattern>/servletReloads</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
